@@ -1,10 +1,10 @@
-<div id="content">
+<!-- <div id="content">
   <div>
     <button style="float: right" class="btn btn-primary" (click)="openMyModal()">
       Open Modal
     </button>      
     
-    <h1>Projects</h1>
+    <h1>Projects </h1>
   </div>
 
   <ngx-masonry [useImagesLoaded]="true" [options]="{ transitionDuration: '0.8s' }">
@@ -12,4 +12,86 @@
       <app-project-item [project]="project"></app-project-item>
     </ngxMasonryItem>
   </ngx-masonry>
+</div> -->
+
+<!-- <!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
+<style>
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Karma", sans-serif
+  }
+
+  .w3-bar-block .w3-bar-item {
+    padding: 20px
+  }
+</style>
+
+<body> -->
+
+<ul>
+  <li>
+    <h2 style="color: white;">Welcome To GroceryCart</h2>
+  </li>
+  <li style="float:center"><a class="active">&nbsp;&nbsp;&nbsp;</a></li>
+  <li style="float:right"><button type="button" class="btn btn-success" (click)="logout()">logout</button></li>
+</ul>
+
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
+
+  <!-- First Photo Grid-->
+  <div class="w3-row-padding w3-padding-16 w3-center" id="food">
+    <div class="w3-quarter">
+      <a [routerLink]="['/home/frozen']"><img src="assets/frozen1.jpeg" alt="food" style="width:100%"></a>
+      <h3><b>Frozen Food</b></h3>
+      <p>Freezing food preserves it from the time it is prepared to the time it is eaten. Since early times, farmers,
+        fishermen, and trappers have preserved grains and produce in unheated buildings during the winter season.
+        Freezing food slows down decomposition by turning residual moisture into ice, inhibiting the growth of most
+        bacterial species. </p>
+    </div>
+    <div class="w3-quarter">
+      <a [routerLink]="['/home/fruit']"><img style="height: 10cm;" src="assets/fruits1.jfif" alt="food" style="width:100%"></a>
+      <br><br><br>
+      <h3><b>fruits and vegitables</b></h3>
+      <p>Fruit and vegetables should be an important part of your daily diet. They are naturally good and contain
+        vitamins and minerals that can help to keep you healthy. They can also help protect against some diseases.</p>
+    </div>
+    <div class="w3-quarter">
+      <a [routerLink]="['/home/cleaner']"><img src="assets/clean1.jpeg" alt="food" style="width:100%"></a>
+      <br><br>
+      <h3><b>Cleaners</b></h3>
+      <p>Cleaning products play an essential role in our daily lives at home, in school and in the office. By safely
+        and effectively removing soils, germs and other contaminants, they prevent the spread of infectious diseases
+        and control allergens, such as dust and mold, helping us to stay healthy. Cleaning products also enable us to
+        care for our homes and possessions.</p>
+    </div>
+    <div class="w3-quarter">
+      <a [routerLink]="['/home/bakery']"><img src="assets/bakery.jpeg" alt="food" style="width:100%"></a>
+      <br><br>
+      <h3><b>Breads and Bakery</b></h3>
+      <p>Baked goods have been around for thousands of years. The art of baking was developed early during the Roman
+        Empire. It was a highly famous art as Roman citizens loved baked goods and demanded for them frequently for
+        important occasions such as feasts and weddings etc.</p>
+    </div>
+  </div>
+
+
+  <!-- End page content -->
 </div>
+
+
+<!-- </body>
+
+</html> -->

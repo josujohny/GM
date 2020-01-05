@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthLayoutComponent } from './layout/auth-layout/auth-layout.component';
 import { ContentLayoutComponent } from './layout/content-layout/content-layout.component';
 import { NoAuthGuard } from '@app/guard/no-auth.guard';
-
 const routes: Routes = [
   {
     path: '',
@@ -19,6 +18,11 @@ const routes: Routes = [
         path: 'home',
         loadChildren: () =>
           import('@modules/home/home.module').then(m => m.HomeModule)
+      },
+      {
+        path: 'grocery',
+        loadChildren: () =>
+          import('@modules/grocery/grocery.module').then(m => m.GroceryModule)
       },
       {
         path: 'about',

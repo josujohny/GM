@@ -1,4 +1,4 @@
-<div class="wrapper">
+<!-- <div class="wrapper">
   <div class="toolbar">
     <mat-toolbar color="primary">
       <div class="container">
@@ -16,10 +16,29 @@
 
           <mat-slide-toggle [checked]="isDarkTheme$ | async" (change)="toggleTheme($event.checked)">Toggle Theme</mat-slide-toggle>
         </span>
-        <div style="float: right;">
-          <a [href]="repoUrl" target="_blank">Fork on GitHub <fa-icon [icon]="['fab','github']"></fa-icon></a>
-        </div>
+        
       </div>
     </mat-toolbar>
   </div>
 </div>
+ -->
+
+  <!-- Navbar (sit on top) -->
+  <div class="w3-top">
+    <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
+      <div align="center">
+        <a href="#home" class="w3-bar-item w3-button">
+          <h2>Grocery Cart</h2>
+        </a></div>
+      <!-- Right-sided navbar links. Hide them on small screens -->
+      <div class="w3-right w3-hide-small">
+        <a [routerLink]="['/grocery/grocerylist']" class="w3-bar-item w3-button">products</a>
+      
+        <a href="#about" class="w3-bar-item w3-button">About</a>
+        <!-- <a href="#menu" class="w3-bar-item w3-button">Menu</a> -->
+        <a href="#contact" class="w3-bar-item w3-button">Contact</a>
+        <a [routerLink]="['/auth/register']" class="w3-bar-item w3-button">SignUp</a>
+        <a [routerLink]="['/auth/login']" class="w3-bar-item w3-button">Login</a>
+      </div>
+    </div>
+  </div>
