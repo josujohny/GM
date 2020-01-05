@@ -19,12 +19,7 @@
     "analyze": "npm run clean && npm run build:prod -- --stats-json && webpack-bundle-analyzer ./dist/stats.json",
     "compodoc": "compodoc -p src/tsconfig.app.json"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged && npm run lint",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
+ 
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
