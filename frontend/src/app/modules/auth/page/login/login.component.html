@@ -1,34 +1,104 @@
-<div class="alert alert-info" role="alert">
-  Username: Mathis \\
-  Password: 12345
-</div>
+<!-- 
+<div class="container-fluid full-width-image">
+  <div class="auth-container">
+    <div class="auth-box">
+      <div class="container">
+        <div class="card col-md-6 mt-3 mx-auto">
+          <div class="card-body">
+            <h4 class="card-title text-center">
+              <fa-icon icon="user-circle" size="3x"></fa-icon>
+            </h4>
+            <div class="alert alert-info" role="alert">
+              Username: Mathis \\
+              Password: 12345
+            </div>
+            
+            <div [hidden]="!error" class="alert alert-danger">
+              {{ error }}
+            </div>
+            
+            <fieldset [disabled]="isLoading">
+              <form (ngSubmit)="login()" [formGroup]="loginForm">
+                  <div class="form-group">
+                    <label class="d-block">
+                      <input type="text" class="form-control" [placeholder]="'Username'" formControlName="username">
+                      <app-control-messages [control]="f['username']"></app-control-messages>
+                    </label>
+                  </div>
+                  <div class="form-group">
+                    <label class="d-block">
+                      <input type="password" class="form-control" [placeholder]="'Password'" formControlName="password">
+                      <app-control-messages [control]="f['password']"></app-control-messages>
+                    </label>
+                  </div>
+                  <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block btn-raised" type="submit" [disabled]="loginForm.invalid">
+                      <span [hidden]="isLoading">Submit</span>
+                      <span [hidden]="!isLoading">
+                        <fa-icon icon="asterisk" size="3x" [spin]="true"></fa-icon>
+                      </span>
+                    </button>
+                  </div>
+                  <a [routerLink]="['/auth/register']">Don't have an account? Sign up here!</a>
+              </form>
+            </fieldset>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
 
-<div [hidden]="!error" class="alert alert-danger">
-  {{ error }}
-</div>
+<body>
+  <!-- <a href="signup"><button type="submit" style="width:3cm">signUp</button><a> -->
 
-<fieldset [disabled]="isLoading">
-  <form (ngSubmit)="login()" [formGroup]="loginForm">
-      <div class="form-group">
-        <label class="d-block">
-          <input type="text" class="form-control" [placeholder]="'Username'" formControlName="username">
-          <app-control-messages [control]="f['username']"></app-control-messages>
-        </label>
+  <div align="center">
+      <div style="width:10cm"><br><br><br><br><br>
+
+          <h2>GroceryCart Login</h2><br>
+
+          <form class="form-container" role="form" #form="ngForm" autocomplete="off">
+              <!-- aaaaaaa -->
+              <!-- <div class="imgcontainer">
+               <img src="assets/j.jpeg" alt="Avatar" class="avatar">
+          </div> -->
+              <!-- aaaaaa -->
+              <div class="container">
+                  <div class="input">
+                      <label for="uname"><b>Username</b></label>
+                      <input type="text" id="name" placeholder="username" name="name" class="form-control" required
+                          minlength="4" [(ngModel)]="name" #names="ngModel">
+
+                      <div *ngIf="names.invalid && (names.dirty || names.touched) && names.errors.required"
+                          class="validation-error" style="color: red;">
+                          Name is required.
+                      </div>
+                      <div *ngIf="names.invalid && (names.dirty || names.touched) && names.errors.minlength"
+                          class="validation-error" style="color: red;">
+                          Name is required with minlength 4.
+                      </div>
+                  </div>
+                  <div class="input">
+                      <label for="psw"><b>Password</b></label>
+                      <input type="password" id="password" placeholder="password" name="password" class="form-control"
+                          required minlength="8" [(ngModel)]="password" #passwords="ngModel">
+
+                      <div *ngIf="passwords.invalid && (passwords.dirty || passwords.touched) && passwords.errors.required"
+                          class="validation-error" style="color: red;">
+                          Password is required.
+                      </div>
+                      <div *ngIf="passwords.invalid && (passwords.dirty || passwords.touched) && passwords.errors.minlength"
+                          class="validation-error" style="color: red;">
+                          Password is required with minlength 8.
+                      </div>
+
+                  </div><button class="btn btn-info btn-block" type="submit" style="background-color:green"
+                      [disabled]="form.invalid" (click)="login()">Login</button>
+
+              </div>
+              <a href="">go back to home</a>
+          </form>
+          <!-- <button type="submit" style="width:3cm" (click)="signup()">signUp</button> -->
       </div>
-      <div class="form-group">
-        <label class="d-block">
-          <input type="password" class="form-control" [placeholder]="'Password'" formControlName="password">
-          <app-control-messages [control]="f['password']"></app-control-messages>
-        </label>
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary btn-block btn-raised" type="submit" [disabled]="loginForm.invalid">
-          <span [hidden]="isLoading">Submit</span>
-          <span [hidden]="!isLoading">
-            <fa-icon icon="asterisk" size="3x" [spin]="true"></fa-icon>
-          </span>
-        </button>
-      </div>
-      <a [routerLink]="['/auth/register']">Don't have an account? Sign up here!</a>
-  </form>
-</fieldset>
+  </div>
+</body>

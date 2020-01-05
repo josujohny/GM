@@ -10,6 +10,8 @@
 @import './styles/themes/black-theme.scss';
 @import './styles/themes/light-theme.scss';
 
+@import './template-common.scss';
+
 // import custom component themes here
 @import 'styles-reset.scss-theme';
 @import 'app/modules/home/page/project-item/project-container.component.scss-theme.scss';

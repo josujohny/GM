@@ -5,7 +5,6 @@ import { RouterModule } from '@angular/router';
 
 import { MaterialModule } from './material.module';
 
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgxMasonryModule } from 'ngx-masonry';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -78,7 +77,6 @@ import { SpinnerComponent } from './component/spinner/spinner.component';
     ReactiveFormsModule,
     RouterModule,
 
-    NgbModule,
     FontAwesomeModule
   ],
   declarations: [ControlMessagesComponent, SpinnerComponent],
@@ -90,7 +88,6 @@ import { SpinnerComponent } from './component/spinner/spinner.component';
 
     MaterialModule,
 
-    NgbModule,
     FontAwesomeModule,
     NgxMasonryModule,
 

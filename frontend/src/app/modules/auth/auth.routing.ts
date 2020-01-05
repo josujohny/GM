@@ -3,11 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { LoginComponent } from './page/login/login.component';
 import { RegisterComponent } from './page/register/register.component';
+import { MainPageComponent } from './page/main-page/main-page.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/auth/login',
+    redirectTo: '/auth/main',
     pathMatch: 'full'
   },
   {
@@ -20,6 +21,10 @@ const routes: Routes = [
       {
         path: 'register',
         component: RegisterComponent
+      },
+      {
+        path: 'main',
+        component: MainPageComponent
       }
     ]
   }
@@ -29,4 +34,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AuthRoutingModule { }
+export class AuthRoutingModule {}
