@@ -24,14 +24,14 @@ export class LoginComponent implements OnInit {
     this.buildForm();
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   get f() {
     return this.loginForm.controls;
   }
 
   login() {
-    this.router.navigate(['/home/home']);
+    this.router.navigate(['/grocery/viewcart']);
     this.isLoading = true;
 
     const credentials = this.loginForm.value;
@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
       .login(credentials)
       .pipe(
         delay(5000),
-        tap(user => this.router.navigate(['/home/home'])),
+        tap(user => this.router.navigate(['/grocery/viewcart'])),
         finalize(() => (this.isLoading = false)),
         catchError(error => of((this.error = error)))
       )

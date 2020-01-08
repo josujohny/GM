@@ -1,54 +1,38 @@
 import { Component, OnInit } from '@angular/core';
+
 import { setTheme } from 'ngx-bootstrap/utils';
-import { CarouselComponent } from 'ngx-bootstrap';
+
+import { CarouselConfig } from 'ngx-bootstrap/carousel';
+
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
-  styleUrls: ['./main-page.component.scss']
+  styleUrls: ['./main-page.component.scss'],
+  providers: [
+    { provide: CarouselConfig, useValue: { interval: 1500, noPause: true, showIndicators: true } }
+  ]
 })
 export class MainPageComponent implements OnInit {
-  ngOnInit(): void {
-    // throw new Error("Method not implemented.");
+  constructor() {
+    setTheme('bs4');
   }
 
-  // @ViewChild(CarouselComponent) myCarousel: CarouselComponent;
-  // name = 'Angular';
-  // masterArray = ['https://valor-software.com/ngx-bootstrap/assets/images/nature/1.jpg',
-  //   'https://valor-software.com/ngx-bootstrap/assets/images/nature/2.jpg',
-  //   'https://valor-software.com/ngx-bootstrap/assets/images/nature/3.jpg',
-  //   'https://valor-software.com/ngx-bootstrap/assets/images/nature/4.jpg',
-  //   'https://valor-software.com/ngx-bootstrap/assets/images/nature/5.jpg',
-  //   'https://valor-software.com/ngx-bootstrap/assets/images/nature/6.jpg',
-  //   'https://valor-software.com/ngx-bootstrap/assets/images/nature/7.jpg',
-  //   'https://valor-software.com/ngx-bootstrap/assets/images/nature/8.jpg',
-  // ];
-  // imagesArray = ['https://valor-software.com/ngx-bootstrap/assets/images/nature/1.jpg',
-  //   'https://valor-software.com/ngx-bootstrap/assets/images/nature/2.jpg',
-  // ];
-  // loopcomplete = false;
-  // itemsPerSlide = 2;
-  // singleSlideOffset = true;
-  // noWrap = true;
-  // activeRange = 0;
+  itemsPerSlide = 5;
+  singleSlideOffset = true;
+  noWrap = true;
+ 
+  slides = [
+    {image: '/assets/bread.jpeg'},
+    {image: '/assets/apple.jpeg'},
+    {image: '/assets/pineapple.jpeg'},
+    {image: '/assets/cake.jpeg'},
+    {image: '/assets/harpic.jpeg'},
+    {image: '/assets/dettol.jpeg'},
+    {image: '/assets/bread.jpeg'},
+    {image: '/assets/bread.jpeg'},
+    {image: '/assets/bread.jpeg'},
+    {image: '/assets/bread.jpeg'}
+  ];
 
-  // constructor() {
-  //   setTheme('bs4');
-  //  }
-
-  // ngOnInit() {
-  // }
-
-  //   gotRangeChange() {
-  //   if (!this.loopcomplete) {
-
-  //     if (this.activeRange + 2 < this.masterArray.length) {
-  //       this.activeRange = this.activeRange + 2;
-  //       this.imagesArray = this.imagesArray.concat(this.masterArray[this.activeRange]);
-  //       this.imagesArray = this.imagesArray.concat(this.masterArray[this.activeRange + 1]);
-  //     } else {
-  //       this.loopcomplete = true;
-  //     }
-  //   }
-
-  // }
+  ngOnInit() {}
 }

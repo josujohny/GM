@@ -49,21 +49,21 @@
   </div>
 </div> -->
 
-<body>
-  <!-- <a href="signup"><button type="submit" style="width:3cm">signUp</button><a> -->
+<!-- <body> -->
+<!-- <a href="signup"><button type="submit" style="width:3cm">signUp</button><a> -->
 
-  <div align="center">
+<!-- <div align="center">
       <div style="width:10cm"><br><br><br><br><br>
 
           <h2>GroceryCart Login</h2><br>
 
-          <form class="form-container" role="form" #form="ngForm" autocomplete="off">
-              <!-- aaaaaaa -->
-              <!-- <div class="imgcontainer">
+          <form class="form-container" role="form" #form="ngForm" autocomplete="off"> -->
+<!-- aaaaaaa -->
+<!-- <div class="imgcontainer">
                <img src="assets/j.jpeg" alt="Avatar" class="avatar">
           </div> -->
-              <!-- aaaaaa -->
-              <div class="container">
+<!-- aaaaaa -->
+<!-- <div class="container">
                   <div class="input">
                       <label for="uname"><b>Username</b></label>
                       <input type="text" id="name" placeholder="username" name="name" class="form-control" required
@@ -97,8 +97,24 @@
 
               </div>
               <a href="">go back to home</a>
-          </form>
-          <!-- <button type="submit" style="width:3cm" (click)="signup()">signUp</button> -->
-      </div>
+          </form> -->
+<!-- <button type="submit" style="width:3cm" (click)="signup()">signUp</button> -->
+<!-- </div>
+  </div>
+</body> -->
+
+<body>
+  <div class="stl">
+    <div class="login"><br><br><br><br><br><br><br><br>
+      <div class="login-triangle"></div>
+
+      <h2 class="login-header">Log in</h2>
+
+      <form class="login-container" (ngSubmit)="login()">
+        <p><input type="email" placeholder="Email"></p>
+        <p><input type="password" placeholder="Password"></p>
+        <p><input type="submit" value="Log in"></p>
+      </form>
+    </div>
   </div>
 </body>

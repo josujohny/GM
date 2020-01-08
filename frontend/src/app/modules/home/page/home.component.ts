@@ -8,14 +8,18 @@ import { Observable } from 'rxjs';
 import { MyModalComponent } from '../modal/my-modal.component';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+    selector: 'app-home',
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+
   projects$: Observable<Project[]>;
 
-  constructor(private projectService: ProjectService) {}
+  constructor(
+    // private modalService: NgbModal,
+    private projectService: ProjectService
+  ) {}
 
   ngOnInit(): void {
     this.loadProjects();
@@ -25,5 +29,11 @@ export class HomeComponent implements OnInit {
     this.projects$ = this.projectService.getAll();
   }
 
-  openMyModal() {}
+  openMyModal() {
+    // const modalRef = this.modalService.open(MyModalComponent);
+    // modalRef.componentInstance.id = 1;
+    // modalRef.result.then((result) => {
+      // console.log(result);
+    // });
+  }
 }

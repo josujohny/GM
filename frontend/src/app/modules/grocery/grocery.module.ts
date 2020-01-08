@@ -1,13 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { GrocerylistComponent } from './grocerylist/grocerylist.component';
-
-import { GroceryRoutingModule } from './grocery.routing';
 import { GroceryComponent } from './grocery.component';
-// import { ViewcartComponent } from './viewcart/viewcart.component';
+import { GrocerylistComponent } from './grocerylist/grocerylist.component';
+import { ViewCartComponent } from './view-cart/view-cart.component';
+import { GroceryRoutingModule } from './grocery.routing';
+import { SidebarComponent } from 'app/layout/sidebar/sidebar.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { GrocerydetailsComponent } from './grocerydetails/grocerydetails.component';
+
+import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { MaterialModule } from 'app/app.module';
 
 @NgModule({
-  declarations: [GroceryComponent, GrocerylistComponent],
-  imports: [CommonModule, GroceryRoutingModule]
+  declarations: [GroceryComponent, GrocerylistComponent, ViewCartComponent, SidebarComponent, CheckoutComponent, GrocerydetailsComponent],
+  imports: [CommonModule,
+     GroceryRoutingModule, CarouselModule.forRoot(), MaterialModule
+    ]
 })
 export class GroceryModule {}

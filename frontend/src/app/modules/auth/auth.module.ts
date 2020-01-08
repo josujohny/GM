@@ -9,13 +9,19 @@ import { AuthRoutingModule } from './auth.routing';
 
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MaterialModule } from '@shared/material.module';
+
+
+
+
+
+
 @NgModule({
   declarations: [LoginComponent, RegisterComponent, MainPageComponent],
-  imports: [
-    CarouselModule.forRoot(),
-    CommonModule,
-    AuthRoutingModule,
-    SharedModule
-  ]
+  imports: [CommonModule, AuthRoutingModule, SharedModule, CarouselModule.forRoot(), FormsModule, ReactiveFormsModule, MaterialModule],
+  entryComponents: [],
+  bootstrap: [MainPageComponent]
 })
 export class AuthModule {}

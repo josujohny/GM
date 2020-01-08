@@ -1,86 +1,193 @@
 //
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
-// form {border: 3px solid #f1f1f1;}
-
-// input[type=text], input[type=password] {
-//   width: 100%;
-//   padding: 12px 20px;
-//   margin: 8px 0;
-//   display: inline-block;
-//   border: 1px solid #ccc;
-//   box-sizing: border-box;
+// body {
+//   font-family: Arial, Helvetica, sans-serif;
 // }
+// // form {border: 3px solid #f1f1f1;}
 
-button {
-  background-color: #4caf50;
-  color: white;
-  // padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 3cm;
-  height: 1.2cm;
-}
+// // input[type=text], input[type=password] {
+// //   width: 100%;
+// //   padding: 12px 20px;
+// //   margin: 8px 0;
+// //   display: inline-block;
+// //   border: 1px solid #ccc;
+// //   box-sizing: border-box;
+// // }
 
-button:hover {
-  opacity: 0.8;
-}
-
-.cancelbtn {
-  width: auto;
-  padding: 10px 18px;
-  background-color: #f44336;
-}
-
-.imgcontainer {
-  text-align: center;
-  margin: 20px 0 8px 0;
-  border-color: black;
-  text-shadow: 1px 1px 2px black, 0 0 25px green, 0 0 5px darkblue;
-}
-
-img.avatar {
-  width: 40%;
-  border-radius: 50%;
-}
-
-.container {
-  padding: 16px;
-}
-
-span.psw {
-  float: right;
-  padding-top: 16px;
-}
-
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-  span.psw {
-    display: block;
-    float: none;
-  }
-  .cancelbtn {
-    width: 100%;
-  }
-}
-
-body {
-  background-image: url('https://image.shutterstock.com/image-photo/blurred-image-bakery-shop-background-260nw-286459268.jpg');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  height: 620px;
-}
-
-// div {
+// button {
+//   background-color: #4caf50;
 //   color: white;
-//   text-shadow: 1px 1px 2px black, 0 0 25px green, 0 0 5px darkblue;
-//   background-size: 100% 100%;
-
+//   // padding: 14px 20px;
+//   margin: 8px 0;
+//   border: none;
+//   cursor: pointer;
+//   width: 3cm;
+//   height: 1.2cm;
 // }
-form {
-  box-shadow: 1px 1px 2px black, 0 0 25px green, 0 0 5px darkblue;
+
+// button:hover {
+//   opacity: 0.8;
+// }
+
+// .cancelbtn {
+//   width: auto;
+//   padding: 10px 18px;
+//   background-color: #f44336;
+// }
+
+// .imgcontainer {
+//   text-align: center;
+//   margin: 20px 0 8px 0;
+//   border-color: black;
+//   text-shadow: 1px 1px 2px black, 0 0 25px green, 0 0 5px darkblue;
+// }
+
+// img.avatar {
+//   width: 40%;
+//   border-radius: 50%;
+// }
+
+// .container {
+//   padding: 16px;
+// }
+
+// span.psw {
+//   float: right;
+//   padding-top: 16px;
+// }
+
+// /* Change styles for span and cancel button on extra small screens */
+// @media screen and (max-width: 300px) {
+//   span.psw {
+//     display: block;
+//     float: none;
+//   }
+//   .cancelbtn {
+//     width: 100%;
+//   }
+// }
+
+// body {
+//   background-image: url('https://image.shutterstock.com/image-photo/blurred-image-bakery-shop-background-260nw-286459268.jpg');
+//   background-repeat: no-repeat;
+//   background-attachment: fixed;
+//   background-size: cover;
+//   height: 620px;
+// }
+
+// // div {
+// //   color: white;
+// //   text-shadow: 1px 1px 2px black, 0 0 25px green, 0 0 5px darkblue;
+// //   background-size: 100% 100%;
+
+// // }
+// form {
+//   box-shadow: 1px 1px 2px black, 0 0 25px green, 0 0 5px darkblue;
+// }
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
+body {
+  background: #456;
+  font-family: 'Open Sans', sans-serif;
 }
+
+.login {
+  width: 400px;
+  margin: 16px auto;
+  font-size: 16px;
+}
+
+/* Reset top and bottom margins from certain elements */
+.login-header,
+.login p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* The triangle form is achieved by a CSS hack */
+.login-triangle {
+  width: 0;
+  margin-right: auto;
+  margin-left: auto;
+  border: 12px solid transparent;
+  border-bottom-color: green;
+}
+
+.login-header {
+  background: green;
+  padding: 20px;
+  font-size: 1.4em;
+  font-weight: normal;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.login-container {
+  background: #ebebeb;
+  padding: 12px;
+}
+
+/* Every row inside .login-container is defined with p tags */
+.login p {
+  padding: 12px;
+}
+
+.login input {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  border-width: 1px;
+  border-style: solid;
+  padding: 16px;
+  outline: 0;
+  font-family: inherit;
+  font-size: 0.95em;
+}
+
+.login input[type="email"],
+.login input[type="password"] {
+  background: #fff;
+  border-color: #bbb;
+  color: #555;
+}
+
+/* Text fields' focus effect */
+.login input[type="email"]:focus,
+.login input[type="password"]:focus {
+  border-color: #888;
+}
+
+.login input[type="submit"] {
+  background: green;
+  border-color: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+
+.login input[type="submit"]:hover {
+  background: green;
+}
+
+/* Buttons' focus effect */
+.login input[type="submit"]:focus {
+  border-color: green;
+}
+
+.stl { 
+  // margin-top:180px;
+  // margin-left: 280px;
+  // width: 20cm;
+}
+
+body {
+  margin-top:-50px;
+  background-image: url("https://images.squarespace-cdn.com/content/v1/57a638c5ebbd1acee619193b/1529434540139-1JT72PUBY0MOAPB9VBHE/ke17ZwdGBToddI8pDm48kAI8vb-WPdIdYYCfizVhTKQUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKc4-bqIMdPlpcIn9ZUR5fP0pz41_tPfyOOqV4UWTX9kfZmWYMppK9k9kx68RqBn3F0/food+background.png?format=1500w");
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-size: cover;
+  height: 700px;
+
+}
+
