@@ -1,33 +1,8 @@
-<!-- <div class="pos">
-<nav class="navigation">
-  <ul class="mainmenu">
-    <li *ngFor="let list of lists"><a [routerLink]="['/grocery/grocerylist']">{{list.category}}</a></li>
-
-  </ul>
-</nav>
-</div> -->
-
 <div class="pos">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- <nav class="navigation" >
-        <ul class="mainmenu">
-          <li><a href="">Bakery</a></li>
-          <li><a href="">Cleaner</a></li>
-          <li><a href="">Frozen food</a></li>
-          <li><a href="">Fruits</a></li>
-          <li><a href="">Vegetable</a></li>
-          <li><a href="">Household</a></li>
-          <li><a href="">Contact us</a></li>
-        </ul>
-      </nav> -->
+
   <br>
-  <!-- <div class="search-container">
-          <form action="/action_page.php">
-            <input type="text" placeholder="Search.." name="search">
-            <button type="submit"><i class="fa fa-search"></i></button>
-          </form>
-      
-      </div> -->
+
   <br>
   <div>
     <mat-nav-list>
@@ -35,7 +10,7 @@
         <div class="flex-items"><a [routerLink]="['/grocery/grocerylist']">
             <p>{{item.value}}</p>
           </a>
-          <!--<span>{{item.id}}</span>-->
+
         </div>
 
       </mat-list-item>
