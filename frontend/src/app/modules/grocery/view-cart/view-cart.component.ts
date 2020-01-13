@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import * as $ from 'jquery';
 import * as myjQuery from 'jquery';
 import { Router } from '@angular/router';
+import { CartApiService } from '@shared/service/cart-api.service';
 // declare var $: any;
 
 @Component({
@@ -10,94 +11,53 @@ import { Router } from '@angular/router';
   styleUrls: ['./view-cart.component.scss']
 })
 export class ViewCartComponent implements OnInit {
-  constructor(private router: Router) {}
+
+  cartItem: any;
+  cItem: any;
+  items: any;
+  subtotal: any;
+  constructor(private cartApi: CartApiService, private ref: ChangeDetectorRef, private router: Router) {}
 
   ngOnInit() {
-  //   /* Set rates + misc */
-  //   var taxRate = 0.05;
-  //   var shippingRate = 15.0;
-  //   var fadeTime = 300;
-
-  //   /* Assign actions */
-  //   $('.product-quantity input').change(function() {
-  //     updateQuantity(this);
-  //   });
-
-  //   $('.product-removal button').click(function() {
-  //     removeItem(this);
-  //   });
-
-  //   /* Recalculate cart */
-  //   function recalculateCart() {
-  //     var subtotal = 0;
-
-  //     /* Sum up row totals */
-  //     $('.product').each(function() {
-  //       subtotal += parseFloat(
-  //         $(this)
-  //           .children('.product-line-price')
-  //           .text()
-  //       );
-  //     });
-
-  //     /* Calculate totals */
-  //     var tax = subtotal * taxRate;
-  //     var shipping = subtotal > 0 ? shippingRate : 0;
-  //     var total = subtotal + tax + shipping;
-
-  //     /* Update totals display */
-  //     $('.totals-value').fadeOut(fadeTime, function() {
-  //       $('#cart-subtotal').html(subtotal.toFixed(2));
-  //       $('#cart-tax').html(tax.toFixed(2));
-  //       $('#cart-shipping').html(shipping.toFixed(2));
-  //       $('#cart-total').html(total.toFixed(2));
-  //       if (total == 0) {
-  //         $('.checkout').fadeOut(fadeTime);
-  //       } else {
-  //         $('.checkout').fadeIn(fadeTime);
-  //       }
-  //       $('.totals-value').fadeIn(fadeTime);
-  //     });
+    this.cartApi.findTotal();
+    this.cartItem = JSON.parse(localStorage.getItem('cart1'));
+    this.subtotal = this.cartApi.subTotal();
+ 
     }
 
-  //   /* Update quantity */
-  //   function updateQuantity(quantityInput) {
-  //     /* Calculate line price */
-  //     var productRow = $(quantityInput)
-  //       .parent()
-  //       .parent();
-  //     var price = parseFloat(productRow.children('.product-price').text());
-  //     var quantity = $(quantityInput).val();
-  //     // var linePrice = price * quantity;
+    deleteitem(deleteitemName) {
+      console.log(deleteitemName);
+      this.cartApi.removeById(deleteitemName);
+      this.cartItem = this.cartApi.getCartItems();
+      this.cartApi.findTotal();
+      this.subtotal = this.cartApi.subTotal();
+      console.log('cartItem', this.cartItem);
+      this.ref.markForCheck(); 
+  
+    }
+  
+    remove(item){
+      this.cartApi.removeItem(item);
+     
+      this.cartItem = this.cartApi.getCartItems();
+      // debugger;
+      this.cartApi.findTotal();
+      this.subtotal = this.cartApi.subTotal();
+      console.log('cartItem', this.cartItem);
+      this.ref.markForCheck(); 
+    }
+    add(item){
+      this.cartApi.addToCart(item);
+      this.cartItem = this.cartApi.getCartItems();
+      this.cartApi.findTotal();
+      this.subtotal = this.cartApi.subTotal();
+      console.log('cartItem', this.cartItem);
+      this.ref.markForCheck(); 
+  
+      
+    }
 
-  //     /* Update line price display and recalc cart totals */
-  //     productRow.children('.product-line-price').each(function() {
-  //       $(this).fadeOut(fadeTime, function() {
-  //         // $(this).text(linePrice.toFixed(2));
-  //         recalculateCart();
-  //         $(this).fadeIn(fadeTime);
-  //       });
-  //     });
-  //   }
-
-  //   /* Remove item from cart */
-  //   function removeItem(removeButton) {
-  //     /* Remove row from DOM and recalc cart total */
-  //     var productRow = $(removeButton)
-  //       .parent()
-  //       .parent();
-  //     productRow.slideUp(fadeTime, function() {
-  //       productRow.remove();
-  //       recalculateCart();
-  //     });
-  //   }
-  // }
-  // back() {
-  //   this.router.navigate(['home']);
-  // }
-  // logout() {
-  //   this.router.navigate(['login']);
-  // }
+  
 
   checkout(){
     this.router.navigate(['/grocery/checkout'])

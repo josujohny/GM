@@ -63,7 +63,7 @@ $font-bold: 'HelveticaNeue-Medium', 'Helvetica Neue Medium';
 
 /* Apply dollar signs */
 .product .product-price:before,
-.product .product-line-price:before,
+// .product .product-line-price:before,
 .totals-value:before {
   content: '₹';
 }
@@ -297,7 +297,7 @@ li a:hover {
 
 
 .stl { margin-top:-100px;
-  margin-left: 380px;
+  margin-left: 180px;
   width: 20cm;
 
 }

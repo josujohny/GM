@@ -1,12 +1,6 @@
-<div class="stl">
+<!-- <div class="stl">
 <div class="container">
-<!-- <ul>
-  <li><button type="button" class="btn btn-outline-success" (click)="back()">Back</button></li>
-  <li style="float:center"><a class="active">&nbsp;&nbsp;&nbsp;</a></li>
 
-  <li style="float:right"><button type="button" class="btn btn-success" (click)="logout()">logout</button></li> -->
-  <!-- <li style="float:right"><button type="button" class="btn btn-success" (click)="addMore()">Add More</button></li> -->
-<!-- </ul> -->
 <div align="center"><br><br><br><br>
   <h2>Cart</h2>
 </div>
@@ -33,7 +27,7 @@
           <div class="product-title">
             <h3>Bread</h3>
           </div>
-          <!-- <p class="product-description">The best dog bones of all time. Holy crap. Your dog will be begging for these things! I got curious once and ate one myself. I'm a fan.</p> -->
+          
         </div>
         <div class="product-price">12.99</div>
         <div class="product-quantity">
@@ -55,7 +49,7 @@
           <div class="product-title">
             <h3>Cake</h3>
           </div>
-          <!-- <p class="product-description">Who doesn't like lamb and rice? We've all hit the halal cart at 3am while quasi-blackout after a night of binge drinking in Manhattan. Now it's your dog's turn!</p> -->
+         
         </div>
         <div class="product-price">45.99</div>
         <div class="product-quantity">
@@ -76,7 +70,7 @@
           <div class="product-title">
             <h3>Cake</h3>
           </div>
-          <!-- <p class="product-description">Who doesn't like lamb and rice? We've all hit the halal cart at 3am while quasi-blackout after a night of binge drinking in Manhattan. Now it's your dog's turn!</p> -->
+          
         </div>
         <div class="product-price">45.99</div>
         <div class="product-quantity">
@@ -116,4 +110,129 @@
   </div>
 </div>
 </div>
-</div>
+</div> -->
+
+
+<!-- <div class="container" *ngFor="let item of cartItem">
+  <section id="cart">
+    <article class="product">
+      <header>
+        <a (click)="deleteitem(item.name)" class="remove">
+          <img src="/assets/{{item.imageUrl}}" alt="">
+          <h3>Remove product</h3>
+        </a>
+      </header>
+      <div class="content">
+        <h1>{{item.name}}</h1>
+        
+      </div>
+      <footer class="content">
+        <span class="qt-minus" (click)="remove(item)">-</span>
+        <span class="qt">{{item.qty}}</span>
+        <span class="qt-plus" (click)="add(item)">+</span>
+        <h1>{{total$}}</h1>
+        <h2 class="full-price">
+          {{item.total}}$
+        </h2>
+        <h2 class="price">
+          {{item.price}}
+        </h2>
+      </footer>
+    </article>
+  </section>
+</div> -->
+
+<div class="stl">
+  <div class="stl">
+    <div class="container">
+      <!-- <ul>
+          <li><button type="button" class="btn btn-outline-success" (click)="back()">Back</button></li>
+          <li style="float:center"><a class="active">&nbsp;&nbsp;&nbsp;</a></li>
+        
+          <li style="float:right"><button type="button" class="btn btn-success" (click)="logout()">logout</button></li> -->
+      <!-- <li style="float:right"><button type="button" class="btn btn-success" (click)="addMore()">Add More</button></li> -->
+      <!-- </ul> -->
+      <div align="center"><br><br><br><br>
+        <h2>Cart</h2>
+      </div>
+      <div align="center">
+        <div style="width: 20cm;">
+          <h1></h1><br><br><br><br>
+
+          <div class="shopping-cart">
+
+            <div class="column-labels">
+                <label class="product-image">Images</label>
+              <label class="product-details">Product</label>
+              <label class="product-price">Price</label>
+              <label class="product-quantity">Quantity</label>
+              <label class="product-removal">Remove</label>
+              <label class="product-line-price">Total</label>
+            </div>
+
+            <div class="product" *ngFor="let item of cartItem">
+              <!-- <div class="product-title">
+                <img src="/assets/{{item.imageUrl}}" alt="Image" width="200px" height="150px">
+              </div> -->
+
+              <div class="product-details">
+                  <div class="product-image">
+                      <img src="/assets/{{item.imageUrl}}">
+                    </div>
+                <div class="product-title">
+                  <h3>{{item.name}}</h3>
+                </div>
+                <!-- <p class="product-description">The best dog bones of all time. Holy crap. Your dog will be begging for these things! I got curious once and ate one myself. I'm a fan.</p> -->
+              </div>
+              <div class="product-price"> {{item.price}}</div>
+              <div class="product-quantity">
+
+                <button (click)="add(item)" type="button" class="add-i-b valup">+</button>
+                <span class="qt">{{item.qty}}</span>
+                <button (click)="remove(item)" type="button" class="add-i-b valup">-</button>
+              </div>
+
+
+              <!-- <span class="qt-plus" (click)="add(item)">+</span> -->
+              <div class="product-removal">
+                <button class="remove-product" (click)="deleteitem(item.name)">
+                  Remove
+                </button>
+              </div>
+              <div class="product-line-price">
+                <div class="totals-value">{{item.total}}</div>
+
+              </div>
+
+
+
+
+            </div>
+            <br><br>
+          </div>
+        </div>
+      </div>
+      <div class="totals">
+        <div class="totals-item">
+          <label>Subtotal</label>
+          <div class="totals-value" id="cart-subtotal">{{subtotal}}</div>
+        </div>
+        <div class="totals-item">
+          <label>Tax (5%)</label>
+          <div class="totals-value" id="cart-tax">{{subtotal*0.05.00}}</div>
+        </div>
+        <div class="totals-item">
+          <label>Shipping</label>
+          <div class="totals-value" id="cart-shipping">5.00</div>
+        </div>
+        <div class="totals-item totals-item-total">
+          <label>Grand Total</label>
+          <div class="totals-value" id="cart-total">{{subtotal+subtotal*0.05+5.00}}</div>
+        </div>
+      </div>
+
+      <button class="checkout" (click)="checkout()">Checkout</button>
+    </div>
+
+
+  </div>

@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { tap, delay, finalize, catchError } from 'rxjs/operators';
+import { tap, delay, finalize, catchError, first } from 'rxjs/operators';
 import { of } from 'rxjs';
 
 import { AuthService } from '@app/service/auth.service';
+import { UserService } from '@app/service/user.service';
 
 @Component({
   selector: 'app-login',
@@ -15,36 +16,57 @@ export class LoginComponent implements OnInit {
   error: string;
   isLoading: boolean;
   loginForm: FormGroup;
-
+  username: any;
+  password: any;
+  userDetails: any;
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
     private authService: AuthService
+
   ) {
     this.buildForm();
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    // console.log(this.userList);
+    // console.log(userList());
+    // this.userList();
+  }
 
   get f() {
     return this.loginForm.controls;
   }
 
   login() {
-    this.router.navigate(['/grocery/viewcart']);
+    // this.router.navigate(['/grocery/viewcart']);
     this.isLoading = true;
 
     const credentials = this.loginForm.value;
+    const request = {
+      username: this.loginForm.value.username,
+      password: this.loginForm.value.password
+    }
 
-    this.authService
-      .login(credentials)
-      .pipe(
-        delay(5000),
-        tap(user => this.router.navigate(['/grocery/viewcart'])),
-        finalize(() => (this.isLoading = false)),
-        catchError(error => of((this.error = error)))
-      )
-      .subscribe();
+    this.authService.login(request)
+
+
+      .subscribe(result => {
+        this.userDetails = result;
+        console.log(result)
+        if (this.userDetails.error) {
+          window.alert('invalid username or password');
+          console.log(this.userDetails)
+        }
+        else {
+
+          localStorage.setItem('appuser', JSON.stringify(this.userDetails));
+          //
+          this.router.navigate(['/grocery/grocerylist/all']);
+        }
+      }
+
+      );
   }
 
   private buildForm(): void {
@@ -53,4 +75,6 @@ export class LoginComponent implements OnInit {
       password: ['', Validators.required]
     });
   }
+  // tslint:disable-next-line:member-ordering
+  // userList = this.authService.userList().pipe();
 }

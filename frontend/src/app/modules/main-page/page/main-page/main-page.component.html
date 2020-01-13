@@ -1,0 +1,157 @@
+<!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+  body {
+    font-family: "Times New Roman", Georgia, Serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Playfair Display";
+    letter-spacing: 5px;
+  }
+</style> -->
+
+
+
+<!-- Header -->
+
+<div class="stl">
+  <header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
+    <!-- <img class="w3-image" src="/assets/main2.jpeg" alt="Hamburger Catering" width="1600" height="800"> -->
+
+
+    <carousel>
+      <slide>
+        <img src="https://c.pxhere.com/images/51/35/9d0b0880b4e75a1ac1b9b36f46d4-1430915.jpg!d" alt="first slide"
+          style="display: block; width: 100%;">
+        <div class="carousel-caption d-none d-md-block">
+          <!-- <h3>First slide label</h3> -->
+          <!-- <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> -->
+        </div>
+      </slide>
+      <slide>
+        <img src="https://c.pxhere.com/photos/99/55/fruit_bowl_shell_fruit_fruits_healthy_food_summer-542819.jpg!d"
+          alt="second slide" style="display: block; width: 100%;">
+        <div class="carousel-caption d-none d-md-block">
+          <!-- <h3>Second slide label</h3> -->
+          <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> -->
+        </div>
+      </slide>
+      <slide>
+        <img src="https://c.pxhere.com/photos/d7/ad/fruits_vitamins_orange_healthy_food_apple_lemon_lime-976011.jpg!d"
+          alt="third slide" style="display: block; width: 100%;">
+        <div class="carousel-caption d-none d-md-block">
+          <h3>Third slide label</h3>
+          <!-- <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p> -->
+        </div>
+      </slide>
+    </carousel>
+
+
+
+
+    <!-- <div class="w3-display-bottomleft w3-padding-large w3-opacity">
+      <h1 class="w3-xxlarge">Le Catering</h1>
+    </div> -->
+  </header>
+
+  <!-- Page content -->
+  <div class="w3-content" style="max-width:1100px">
+
+    <!-- About Section -->
+    <div class="w3-row w3-padding-64" id="about">
+      <div class="w3-col m6 w3-padding-large w3-hide-small">
+        <img src="/assets/main3.jpeg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="600"
+          height="550">
+      </div>
+
+      <div class="w3-col m6 w3-padding-large">
+        <br><br>
+        <h1 class="w3-center">About Grocery Store</h1><br>
+        <h5 class="w3-center"></h5>
+        <p class="w3-large">A grocery store or grocer's shop is a retail shop that primarily sells food, either fresh or
+          preserved. Large grocery stores stock significant amounts of non-food products, such as clothing and household
+          items, blurring the line between grocery stores and supermarkets. In Canada, the United Kingdom, and the
+          United States, supermarkets and convenience shops are sometimes described as grocery businesses, groceries or
+          simply grocers.[note 1] Small grocery stores that mainly sell fruits and vegetables are known as greengrocers
+          (Britain) or produce markets (U.S.), and small grocery stores that predominantly sell prepared food, such as
+          candy and snacks, are known as convenience shops or delicatessens....</p>
+        <p class="w3-large w3-text-grey w3-hide-medium">Beginning as early as the 14th century, a grocer (or "purveyor")
+          was a dealer in comestible dry goods such as spices, peppers, sugar, and (later) cocoa, tea, and coffee.
+          Because these items were often bought in bulk, they were named after the French word for wholesaler, or
+          "grossier". This, in turn, is derived from the Medieval Latin term "grossarius",[2] from which the term
+          "gross" (meaning a quantity of 12 dozen, or 144) is also derived.</p>
+      </div>
+    </div>
+
+    <!-- <hr> -->
+
+    <!-- Menu Section -->
+    <!-- <div class="w3-row w3-padding-64" id="menu">
+    <div class="w3-col l6 w3-padding-large">
+      <h1 class="w3-center">Our Menu</h1><br>
+      <h4>Bread Basket</h4>
+      <p class="w3-text-grey">Assortment of fresh baked fruit breads and muffins 5.50</p><br>
+    
+      <h4>Honey Almond Granola with Fruits</h4>
+      <p class="w3-text-grey">Natural cereal of honey toasted oats, raisins, almonds and dates 7.00</p><br>
+    
+      <h4>Belgian Waffle</h4>
+      <p class="w3-text-grey">Vanilla flavored batter with malted flour 7.50</p><br>
+    
+      <h4>Scrambled eggs</h4>
+      <p class="w3-text-grey">Scrambled eggs, roasted red pepper and garlic, with green onions 7.50</p><br>
+    
+      <h4>Blueberry Pancakes</h4>
+      <p class="w3-text-grey">With syrup, butter and lots of berries 8.50</p>    
+    </div>
+    
+    <div class="w3-col l6 w3-padding-large">
+      <img src="/w3images/tablesetting.jpg" class="w3-round w3-image w3-opacity-min" alt="Menu" style="width:100%">
+    </div>
+  </div>
+
+  <hr> -->
+
+
+    <p>
+      Featured Items
+    </p>
+    <carousel [itemsPerSlide]="itemsPerSlide" [singleSlideOffset]="singleSlideOffset" [interval]="false"
+      [noWrap]="noWrap">
+      <slide *ngFor="let slide of slides; let index=index">
+        <img [attr.src]="slide.image" style=" width: 100%;">
+        <div class="carousel-caption">
+          <h4>Slide {{index}}</h4>
+        </div>
+      </slide>
+    </carousel>
+
+
+
+
+    <!-- Contact Section -->
+    <div class="w3-container w3-padding-64" id="contact">
+      <h1>Contact</h1><br>
+      <!-- <p>We offer full-service catering for any event, large or small. We understand your needs and we will cater the food to satisfy the biggerst criteria of them all, both look and taste. Do not hesitate to contact us.</p> -->
+      <p class="w3-text-blue-grey w3-large"><b>Grocery Cart, 42nd Living St, 43043 New York, NY</b></p>
+      <p>You can also contact us by phone 00553123-2323 or email grocerycart@grocery.com, or you can send us a message
+        here:</p>
+      <!-- <form action="/action_page.php" target="_blank">
+      <p><input class="w3-input w3-padding-16" type="text" placeholder="Name" required name="Name"></p>
+      <p><input class="w3-input w3-padding-16" type="number" placeholder="How many people" required name="People"></p>
+      <p><input class="w3-input w3-padding-16" type="datetime-local" placeholder="Date and time" required name="date" value="2017-11-16T20:00"></p>
+      <p><input class="w3-input w3-padding-16" type="text" placeholder="Message \ Special requirements" required name="Message"></p>
+      <p><button class="w3-button w3-light-grey w3-section" type="submit">SEND MESSAGE</button></p>
+    </form> -->
+    </div>
+
+    <!-- End page content -->
+  </div>
+</div>
+
+<!-- Footer -->

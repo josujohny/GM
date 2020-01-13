@@ -1,5 +1,7 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { setTheme } from 'ngx-bootstrap/utils';
+import { ActivatedRoute, Router } from '@angular/router';
+import { GroceryApiService } from '@shared/service/grocery-api.service';
 
 @Component({
   selector: 'app-grocerydetails',
@@ -8,12 +10,39 @@ import { setTheme } from 'ngx-bootstrap/utils';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GrocerydetailsComponent implements OnInit {
+  groceryDetails: string;
+  details: any;
+  id: string;
 
-  constructor() { 
+  constructor(
+    private  route: ActivatedRoute, 
+    private  router: Router, 
+    private groceryService: GroceryApiService,
+    private ref: ChangeDetectorRef
+  ) { 
     setTheme('bs4');
   }
 
   ngOnInit() {
+
+    this.route.paramMap.subscribe(params => {
+      console.log(params.get('_id'));
+      this.id = params.get('_id');
+
+    });
+
+    this.loadDetails(this.id);
+  }
+
+  loadDetails(id)
+  {
+    this.groceryService.getgroceryDetails(id).subscribe(
+      (result) => {
+        this.details = result;
+        console.log(result);
+        this.ref.markForCheck();
+      }
+    )
   }
 
 }

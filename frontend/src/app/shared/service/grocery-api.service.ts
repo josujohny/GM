@@ -26,6 +26,22 @@ export class GroceryApiService {
       .pipe(map(r => this.parseResponse(r)))
   }
 
+  getgroceryDetails(_id)
+  {
+    return this.http.get('http://localhost:5300/inventory/' + _id + '/detail')
+    .map((response: Response) => response);
+      
+  }
+  getItemsWithCategory(category) {
+    return this.http.get('http://localhost:5300/inventory/' + category + '/Items')
+      .pipe(map(r => this.parseResponse(r)))
+  }
+
+  getcategoryList() {
+    return this.http.get('http://localhost:5300/category')
+      .pipe(map(r => this.parseResponse(r)))
+  }
+
   errorMgmt(error: HttpErrorResponse) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {

@@ -1,14 +1,89 @@
-<div class="stl">
+<!-- <div class="stl">
     <div class="container" style="width: 12m;">
-        <!-- Main -->
+       
 
         <div class="container" style="padding-top:100px;">
             <div>
                 <h2>Items</h2><br>
             </div>
             <div class="row">
-                <div *ngFor="let grocery of groceryList | async">
-                    <img src="/assets/{{grocery.imageUrl}}">
+                <div *ngFor="let grocery of groceryList | async" class="content">
+                    <img src="/assets/{{grocery.imageUrl}}" height="150" width="200">
+                    <h4 class="card-title">{{grocery.name}}</h4>
+                    <a [routerLink]="['/grocery/details']" data-name="Lemon" data-price="5"
+                        class="add-to-cart btn btn-success">View
+                        details</a>
+                </div>
+                <div class="col">
+                    <div class="card" style="width: 15rem;">
+
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+
+
+<!-- 
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<div class="w3-container" align="center">
+    <h2>Products</h2>
+    <div *ngFor="let grocery of groceryList | async" class="content">
+        <div class="w3-card-4" style="width:25%">
+            <img src="/assets/{{grocery.image}}" alt="Image" style="width:100%">
+            <div class="w3-container w3-center">
+                <p>{{grocery.name}}</p>
+                <a (click)="addToCart(grocery)" class="add-to-cart btn btn-success">Add to Cart </a> &nbsp;
+                <a [routerLink]="['/grocery/details', grocery._id]" class="add-to-cart btn btn-success">View details</a>
+
+            </div>
+        </div>
+        <br><br>
+    </div>
+</div> -->
+
+
+
+
+<div class="stl">
+    <div class="container" style="width: 12m;">
+    
+        <div class="container" style="padding-top:100px;">
+            <div>
+                <h2>Items</h2><br>
+            </div>
+            <div class="row">
+                <!-- <p>{{catName}}</p> -->
+                <div *ngFor="let grocery of grocerylist | async" class="content">
+
+                    <img src="/assets/{{grocery.imageUrl}}" width="200px" height="200px">
+                    <h4 class="card-title">{{grocery.name}}</h4>
+                    <a (click)="addToCart(grocery)" class="add-to-cart btn btn-success">Add to Cart </a> &nbsp;
+                <a [routerLink]="['/grocery/details', grocery._id]" class="add-to-cart btn btn-success">View details</a>
+                </div>
+                <div class="col">
+                    <div class="card" style="width: 15rem;">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+
+        <!-- 
+            <div class="stl">
+    <div class="container" style="width: 12m;">
+       
+        <div class="container" style="padding-top:100px;">
+            <div>
+                <h2>Items</h2><br>
+            </div>
+            <div class="row">
+                <p>{{catName}}</p>
+                <div *ngFor="let grocery of grocerylist | async">
+                       
+                    <img src="/assets/images/{{grocery.imageUrl}}">
                     <h4 class="card-title">{{grocery.name}}</h4>
                     <a [routerLink]="['/grocery/details']" data-name="Lemon" data-price="5"
                         class="add-to-cart btn btn-success">View
@@ -21,3 +96,5 @@
                 </div>
             </div>
         </div>
+
+     -->

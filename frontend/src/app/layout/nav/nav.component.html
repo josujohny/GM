@@ -35,18 +35,20 @@
       <!-- </div> -->
       <!-- Right-sided navbar links. Hide them on small screens -->
       <div class="w3-right w3-hide-small">
-        <a [routerLink]="['/grocery/grocerylist']" class="w3-bar-item w3-button">products</a>
+        <a [routerLink]="['/grocery/grocerylist/all']" class="w3-bar-item w3-button">products</a>
         <a href="#about" class="w3-bar-item w3-button">About</a>
         <!-- <a href="#menu" class="w3-bar-item w3-button">Menu</a> -->
         <a href="#contact" class="w3-bar-item w3-button">Contact</a>
         <!-- <a [routerLink]="['/auth/login']" class="w3-bar-item w3-button"> -->
 
-        <a [routerLink]="['/auth/login']" class="p1 fa-stack fa-2x has-badge" data-count="4">
+        <!-- <a [routerLink]="['/grocery/viewcart']" class="p1 fa-stack fa-2x has-badge" data-count="4"> -->
           <!--<i class="p2 fa fa-circle fa-stack-2x"></i>-->
-          <i class="p3 fa fa-shopping-cart fa-stack-1x xfa-inverse" data-count="4b"></i>
-        </a>
-        <a [routerLink]="['/auth/login']" class="w3-bar-item w3-button">Login</a>
-        <a [routerLink]="['/auth/register']" class="w3-bar-item w3-button">SignUp</a>
+          <!-- <i class="p3 fa fa-shopping-cart fa-stack-1x xfa-inverse" data-count="4b"></i> -->
+        <!-- </a> -->
+        <!-- <a [routerLink]="['/auth/login']" class="w3-bar-item w3-button">Login</a>
+        <a [routerLink]="['/auth/register']" class="w3-bar-item w3-button">SignUp</a> -->
+        <a [routerLink]="['/grocery/viewcart']" class="w3-bar-item w3-button">View Cart</a>
+        <a [routerLink]="['/auth/login']" class="w3-bar-item w3-button">Logout</a>
         <!-- <a [routerLink]="['/auth/register']" class="w3-bar-item w3-button"><div id="ex4">
             <span class="p1 fa-stack fa-2x has-badge" data-count="4"> -->
               <!--<i class="p2 fa fa-circle fa-stack-2x"></i>-->

@@ -1,4 +1,4 @@
-<div class="pos">
+<!-- <div class="pos">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <br>
@@ -17,4 +17,36 @@
     </mat-nav-list>
 
   </div>
-</div>
+</div> -->
+
+
+
+<div class="pos">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <br>
+
+  <br>
+  <div>
+
+    <div *ngFor="let categorylist of categorylist|async">
+      <a (click)='navigatelistpage()'></a>
+      <div class="flex-items"><a (click)="navigatelistpage(categorylist.name)">
+          <p>{{categorylist.name}}</p>
+        </a>
+
+      </div>
+
+      <!-- <mat-nav-list>
+          <mat-list-item >
+            <div class="flex-items"><a [routerLink]="['/grocery/grocerylist']">
+                <p>Test</p>
+              </a>
+    
+            </div>
+    
+          </mat-list-item>
+        </mat-nav-list> -->
+
+    </div>
+  </div>

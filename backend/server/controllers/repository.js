@@ -6,8 +6,8 @@ const con = 'mongodb://localhost:27017/grocerycart'
 
 /**
  * FETCH ALL records for a given collection
- */ 
-module.exports.fetchAll = (req, res, collection) => {    
+ */
+module.exports.fetchAll = (req, res, collection) => {
   MongoClient.connect(con, function (err, db) {
     if (err) throw err
 
@@ -53,7 +53,7 @@ module.exports.createOne = (req, res, collection, document) => {
   MongoClient.connect(con, function (err, db) {
     if (err) throw err
 
-    db.collection(collection).insertOne(document).then(function(result) {
+    db.collection(collection).insertOne(document).then(function (result) {
       console.log(collection + ' - Inserted');
       res.statusCode = 201;
       res.json(result.ops[0]);
@@ -69,7 +69,7 @@ module.exports.removeOne = (req, res, collection, condition) => {
   MongoClient.connect(con, function (err, db) {
     if (err) throw err
 
-    db.collection(collection).deleteOne(condition).then(function(result) {
+    db.collection(collection).deleteOne(condition).then(function (result) {
       console.log(collection + ' - Deleted');
       res.statusCode = 204;
       res.send(result);
@@ -86,16 +86,16 @@ module.exports.reviseOne = (req, res, collection, condition, document) => {
 
     db.collection(collection).findOneAndUpdate(
       condition,
-      { 
+      {
         $set: document,
         $currentDate: {
-          lastModified: true 
+          lastModified: true
         }
       },
       {
-          returnOriginal: false
+        returnOriginal: false
       }
-    ).then(function(result) {
+    ).then(function (result) {
       console.log(collection + ' - Updated');
       //res.statusCode = 204;
       res.json(result.value);
@@ -132,18 +132,21 @@ module.exports.getItems = (req, res) => {
             category: true,
             description: true,
             unitPrice: true,
+            price: true,
             quantityInStock: true,
             rating: true,
             imageUrl: true,
-            reviewsCount: { 
-                $size: "$reviews" 
+            image: true,
+            img: true,
+            reviewsCount: {
+              $size: "$reviews"
             }
           }
         }
       ]
     ).toArray(function (err, result) {
       if (err) throw err
-      
+
       res.send(result);
     })
   })
@@ -183,9 +186,12 @@ module.exports.getItemsForUser = (req, res) => {
             category: true,
             description: true,
             unitPrice: true,
+            price: true,
             quantityInStock: true,
             rating: true,
             imageUrl: true,
+            image: true,
+            img: true,
             reviewsCount: { $size: "$reviews" },
             cartCount: {
               "$let": {
@@ -193,26 +199,26 @@ module.exports.getItemsForUser = (req, res) => {
                   "item": {
                     "$arrayElemAt": [
                       {
-                        $filter: { 
-                          input: "$cartItems", 
-                          as: "cartItem", 
+                        $filter: {
+                          input: "$cartItems",
+                          as: "cartItem",
                           cond: {
-                            $eq: ["$$cartItem.userId", req.params.username] 
-                          } 
+                            $eq: ["$$cartItem.userId", req.params.username]
+                          }
                         }
-                      }, 
-                    0]
+                      },
+                      0]
                   }
                 },
                 "in": "$$item.quantity"
               }
-            }   
+            }
           }
         }
       ]
     ).toArray(function (err, result) {
       if (err) throw err
-      
+
       res.send(result);
     })
   })
@@ -228,9 +234,9 @@ module.exports.getItemDetail = (req, res) => {
     db.collection('inventory').aggregate(
       [
         {
-          $match : {
-            _id : mongodb.ObjectID(req.params.itemId) 
-          } 
+          $match: {
+            _id: mongodb.ObjectID(req.params.itemId)
+          }
         },
         {
           $lookup: {
@@ -249,9 +255,12 @@ module.exports.getItemDetail = (req, res) => {
             category: true,
             description: true,
             unitPrice: true,
+            price: true,
             quantityInStock: true,
             rating: true,
             imageUrl: true,
+            image: true,
+            img: true,
             reviews: true,
             reviewsCount: {
               $size: "$reviews"
@@ -261,7 +270,7 @@ module.exports.getItemDetail = (req, res) => {
       ]
     ).next(function (err, result) {
       if (err) throw err
-      
+
       res.send(result);
     })
   })
@@ -281,17 +290,17 @@ module.exports.getCartItems = (req, res) => {
 
   if (itemId) {
     condition['itemId'] = mongodb.ObjectID(req.query.itemId)
-    fetchOne(req, res, 'cart', condition) 
+    fetchOne(req, res, 'cart', condition)
   } else {
     MongoClient.connect(con, function (err, db) {
       if (err) throw err;
 
       db.collection('cart').aggregate(
         [
-          { 
-            $match: { 
+          {
+            $match: {
               userId: req.params.username
-            } 
+            }
           },
           {
             $lookup: {
@@ -317,9 +326,87 @@ module.exports.getCartItems = (req, res) => {
         ]
       ).toArray(function (err, result) {
         if (err) throw err
-        
+
         res.send(result);
       })
     })
   }
+}
+
+module.exports.signup = (req, res, collection, document) => {
+  MongoClient.connect(con, function (err, db) {
+    if (err) throw err
+
+    db.collection(collection).insertOne(document).then(function(result) {
+      console.log(collection + ' - Inserted');
+      res.statusCode = 201;
+      res.json(result.ops[0]);
+      res.send(result);
+    })
+  })
+}
+
+
+//LIST THE CATEGORIES for unauthorised access
+
+module.exports.getAllCategories = (req, res, collection) => {
+  MongoClient.connect(con, function (err, db) {
+    if (err) throw err
+
+    db.collection('category').find().toArray(function (err, result) {
+      if (err) throw err
+      res.send(result)
+    })
+  })
+}
+////
+
+
+module.exports.getItemByCategoryByName = (req, res, collection, condition) => {
+  console.log("req.params.category", req.params.category);
+  MongoClient.connect(con, function (err, db) {
+    if (err) throw err;
+    db.collection(collection).find(condition).toArray(function (err, result) {
+      if (err) throw err
+      res.send(result);
+    })
+  })
+}
+
+module.exports.getItemByCategory = (req, res, collection, condition) => {
+  console.log("req.params.category", req.params.category);
+  MongoClient.connect(con, function (err, db) {
+    if (err) throw err;
+
+    db.collection('inventory').aggregate(
+      [
+        {
+          $match: {
+            category: condition
+          }
+        },
+        {
+          $project: {
+            _id: true,
+            name: true,
+            code: true,
+            releaseDate: true,
+            category: true,
+            description: true,
+            unitPrice: true,
+            quantityInStock: true,
+            rating: true,
+            imageUrl: true,
+            reviewsCount: {
+              $size: "$reviews"
+            }
+          }
+        }
+      ]
+    ).toArray(function (err, result) {
+      if (err) throw err
+
+      res.send(result);
+    })
+  })
 }

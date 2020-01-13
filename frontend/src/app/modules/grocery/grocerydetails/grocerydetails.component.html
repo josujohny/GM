@@ -1,4 +1,4 @@
-<div class="stl">
+<!-- <div class="stl">
     <div class="container" style="width: 7cm;height:5cm">
         <div class="col">
             <h2>Details</h2><br>
@@ -29,6 +29,34 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</div> -->
+
+
+
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+<div class="w3-container" align="center">
+    <h2>Product Detail</h2>
+
+    <div class="w3-card-4" style="width:25%">
+        <carousel>
+            <slide>
+                <img src="/assets/{{details.image}}" alt="Image" style="width:100%">
+            </slide>
+            <slide>
+                <img src="/assets/{{details.img}}" alt="Image" style="width:100%">
+            </slide>
+        </carousel>
+        <div class="w3-container w3-center">
+            <p>Name: {{details.name}}</p>
+            <p>Price: {{details.price}}</p>
+            <a  class="add-to-cart btn btn-success">Add to Cart </a>
+            &nbsp;
+            <a [routerLink]="['/grocery/grocerylist/all']" class="add-to-cart btn btn-success">Back </a>
         </div>
     </div>
 </div>

@@ -18,7 +18,7 @@ export const routes: Routes = [
     component: GroceryComponent,
     children: [
       {
-        path: 'grocerylist',
+        path: 'grocerylist/:category',
         component: GrocerylistComponent
       },
       {
@@ -26,7 +26,7 @@ export const routes: Routes = [
         component: ViewCartComponent
       },
       {
-        path: 'details',
+        path: 'details/:_id',
         component: GrocerydetailsComponent
       },
       {
